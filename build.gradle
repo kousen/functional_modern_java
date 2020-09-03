@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kousen'
+version '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0-RC1'
+}
+
+test {
+    useJUnitPlatform()
+}
