@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparingInt;
+
 public class SortGolfers {
-    private final List<Golfer> golfers = Arrays.asList(
+    private final List<Golfer> golfers = List.of(
             new Golfer("Jack", "Nicklaus", 68),
             new Golfer("Tiger", "Woods", 70),
             new Golfer("Tom", "Watson", 70),
@@ -25,7 +27,7 @@ public class SortGolfers {
     // sort by score, then equal scores by last name
     public void sortByScoreThenLast() {
         golfers.stream()
-                .sorted(Comparator.comparingInt(Golfer::getScore)
+                .sorted(comparingInt(Golfer::getScore)
                         .thenComparing(Golfer::getLast))
                 .forEach(System.out::println);
     }
@@ -33,7 +35,7 @@ public class SortGolfers {
     // sort by score, then by last, then by first
     public void sortByScoreThenLastThenFirst() {
         golfers.stream()
-                .sorted(Comparator.comparingInt(Golfer::getScore)
+                .sorted(comparingInt(Golfer::getScore)
                         .thenComparing(Golfer::getLast)
                         .thenComparing(Golfer::getFirst))
                 .forEach(System.out::println);
